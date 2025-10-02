@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 const int SIZE = 7;  
@@ -9,6 +10,12 @@ struct Node {
 };
 
 void output(Node *);
+void output(Node * hd);
+void addFront(Node *&head, float);
+void addBack(Node *&head, float);
+void deleteNode(Node *&head, int);
+void insertNode(Node *&head, int, float);
+void deleteList(Node *&head);
 
 int main() {
     Node *head = nullptr;
