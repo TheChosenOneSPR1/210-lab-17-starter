@@ -24,7 +24,7 @@ int main() {
         int tmp_val = rand() % 100;
         addFront(head, tmp_val);
     }
-    // deleting a node
+
     cout << "Which node to delete? " << endl;
     output(head);
     int entry;
