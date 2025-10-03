@@ -11,15 +11,14 @@ struct Node {
 
 void output(Node *);
 void output(Node * hd);
-void addFront(Node *&head, float);
-void addBack(Node *&head, float);
-void deleteNode(Node *&head, int);
-void insertNode(Node *&head, int, float);
+void addFront(Node *&head, float val);
+void addBack(Node *&head, float val);
+void deleteNode(Node *&head, int pos);
+void insertNode(Node *&head, int pos, float);
 void deleteList(Node *&head);
 
 int main() {
     Node *head = nullptr;
-    int count = 0;
 
     // create a linked list of size SIZE with random numbers 0-99
     for (int i = 0; i < SIZE; i++) {
@@ -37,9 +36,12 @@ int main() {
             newVal->value = tmp_val;
             head = newVal;
         }
+        
     }
-    output(head);
-
+    for (int i = 0; i < SIZE; i++) {
+        int tmp_val = rand() % 100;
+        addFront(head, tmp_val);
+    }
     // deleting a node
     Node * current = head;
     cout << "Which node to delete? " << endl;
@@ -64,6 +66,7 @@ int main() {
         delete current;
         current = nullptr;
     }
+    deleteNode(head, entry);
     output(head);
 
     // insert a node
@@ -118,4 +121,11 @@ void output(Node * hd) {
         current = current->next;
     }
     cout << endl;
+}
+
+void addFront(Node *&head, float val) {
+    Node *newNode = new Node;
+    newNode->value = val;
+    newNode->next = head;
+    head = newNode;
 }
